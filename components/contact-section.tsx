@@ -8,11 +8,9 @@ import {
   Check,
   Copy,
   MapPin,
-  Sparkles,
-  ExternalLink,
+  ArrowRight,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
-import { Button } from "@/components/ui/button";
 
 export function ContactSection() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -33,7 +31,6 @@ export function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    // Client-side simulation of message submission
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -42,240 +39,236 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-500 border border-purple-500/20 mb-3">
-            <Mail className="w-3.5 h-3.5" />
-            Let&apos;s Connect
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
-            Get In Touch
-          </h2>
-          <p className="mt-3 text-neutral-600 dark:text-neutral-400 text-sm sm:text-base">
-            Interested in collaborating on AI systems, hackathons, or software engineering opportunities? Reach out directly.
-          </p>
+    <section id="contact" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mb-16">
+        <div className="text-[11px] font-mono font-bold tracking-[0.3em] text-neutral-500 uppercase mb-3">
+          DIRECT INQUIRIES &amp; COLLABORATION
         </div>
+        <h2 className="text-4xl sm:text-6xl font-black text-black tracking-tight uppercase mb-4">
+          GET IN TOUCH.
+        </h2>
+        <p className="text-neutral-600 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+          Tell me what you&apos;re building. I&apos;ll get back within 24 hours.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Direct Contact Info */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-900/60 border border-neutral-200 dark:border-neutral-800 space-y-6">
-              <h3 className="font-bold text-lg text-neutral-900 dark:text-white">
-                Contact Details
-              </h3>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Contact Info Cards */}
+        <div className="lg:col-span-5 space-y-4">
+          <div className="p-8 rounded-3xl glass-card space-y-6">
+            <h3 className="font-extrabold text-xl text-black uppercase tracking-tight">
+              Direct Channels
+            </h3>
 
-              {/* Email */}
-              <div className="flex items-center justify-between p-3.5 rounded-xl bg-white dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-purple-500/10 text-purple-500">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-neutral-500 dark:text-neutral-400">
-                      Email
-                    </div>
-                    <a
-                      href="mailto:kumarkirimehraj05@gmail.com"
-                      className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 hover:text-purple-500 transition-colors"
-                    >
-                      kumarkirimehraj05@gmail.com
-                    </a>
-                  </div>
-                </div>
-                <button
-                  onClick={() =>
-                    handleCopy("kumarkirimehraj05@gmail.com", "email")
-                  }
-                  className="p-2 text-neutral-400 hover:text-purple-500"
-                  title="Copy email"
-                >
-                  {copied === "email" ? (
-                    <Check className="w-4 h-4 text-emerald-500" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
-
-              {/* Phone */}
-              <div className="flex items-center justify-between p-3.5 rounded-xl bg-white dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-500">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-neutral-500 dark:text-neutral-400">
-                      Phone / WhatsApp
-                    </div>
-                    <a
-                      href="tel:+917350695999"
-                      className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 hover:text-indigo-500 transition-colors"
-                    >
-                      +91 7350695999
-                    </a>
-                  </div>
-                </div>
-                <button
-                  onClick={() => handleCopy("+917350695999", "phone")}
-                  className="p-2 text-neutral-400 hover:text-indigo-500"
-                  title="Copy phone number"
-                >
-                  {copied === "phone" ? (
-                    <Check className="w-4 h-4 text-emerald-500" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
-
-              {/* Location */}
-              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700">
-                <div className="p-2 rounded-lg bg-pink-500/10 text-pink-500">
-                  <MapPin className="w-4 h-4" />
+            {/* Email */}
+            <div className="flex items-center justify-between p-4 rounded-2xl bg-white border border-black/[0.08] shadow-xs">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center">
+                  <Mail className="w-4 h-4 text-black" />
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-500 dark:text-neutral-400">
-                    Location
+                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-neutral-400">
+                    Email
                   </div>
-                  <div className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-                    Hyderabad, India (Academic) / Maharashtra (Permanent)
-                  </div>
+                  <a
+                    href="mailto:kumarkirimehraj05@gmail.com"
+                    className="text-xs sm:text-sm font-bold text-black hover:underline"
+                  >
+                    kumarkirimehraj05@gmail.com
+                  </a>
                 </div>
               </div>
+              <button
+                onClick={() =>
+                  handleCopy("kumarkirimehraj05@gmail.com", "email")
+                }
+                className="p-2 text-neutral-500 hover:text-black"
+                title="Copy email"
+              >
+                {copied === "email" ? (
+                  <Check className="w-4 h-4 text-emerald-600" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
+              </button>
+            </div>
 
-              {/* Social Profiles */}
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                <a
-                  href="https://linkedin.com/in/mehraj-kumarkiri-2ab373211"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700 hover:border-purple-500 transition-colors group"
-                >
-                  <div className="flex items-center gap-2">
-                    <LinkedinIcon className="w-4 h-4 text-purple-500" />
-                    <span className="text-xs font-semibold text-neutral-800 dark:text-neutral-200">
-                      LinkedIn
-                    </span>
+            {/* Phone */}
+            <div className="flex items-center justify-between p-4 rounded-2xl bg-white border border-black/[0.08] shadow-xs">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center">
+                  <Phone className="w-4 h-4 text-black" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-neutral-400">
+                    Phone / WhatsApp
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover:text-purple-500 transition-colors" />
-                </a>
+                  <a
+                    href="tel:+917350695999"
+                    className="text-xs sm:text-sm font-bold text-black hover:underline"
+                  >
+                    +91 7350695999
+                  </a>
+                </div>
+              </div>
+              <button
+                onClick={() => handleCopy("+917350695999", "phone")}
+                className="p-2 text-neutral-500 hover:text-black"
+                title="Copy phone"
+              >
+                {copied === "phone" ? (
+                  <Check className="w-4 h-4 text-emerald-600" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
+              </button>
+            </div>
 
-                <a
-                  href="https://github.com/mehrajkumarkiri"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700 hover:border-purple-500 transition-colors group"
-                >
-                  <div className="flex items-center gap-2">
-                    <GithubIcon className="w-4 h-4 text-purple-500" />
-                    <span className="text-xs font-semibold text-neutral-800 dark:text-neutral-200">
-                      GitHub
-                    </span>
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover:text-purple-500 transition-colors" />
-                </a>
+            {/* Location */}
+            <div className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-black/[0.08] shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center">
+                <MapPin className="w-4 h-4 text-black" />
+              </div>
+              <div>
+                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-neutral-400">
+                  Location
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-black">
+                  Hyderabad (Academic) / Maharashtra (Permanent)
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Interactive Message Form */}
-          <div className="lg:col-span-7">
-            <div className="p-8 rounded-2xl bg-neutral-50 dark:bg-neutral-900/60 border border-neutral-200 dark:border-neutral-800">
-              <h3 className="font-bold text-lg text-neutral-900 dark:text-white mb-2">
-                Send a Direct Message
-              </h3>
-              <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-6">
-                Fill in the form below to initiate collaboration, request code samples, or discuss engineering roles.
-              </p>
-
-              {submitted ? (
-                <div className="p-6 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-center space-y-2">
-                  <Check className="w-8 h-8 mx-auto" />
-                  <p className="font-semibold text-sm">
-                    Thank you! Your message has been received.
-                  </p>
-                  <p className="text-xs text-neutral-600 dark:text-neutral-300">
-                    Mehraj Kumarkiri will follow up shortly at your provided email.
-                  </p>
+            {/* Social Links */}
+            <div className="grid grid-cols-2 gap-3 pt-2">
+              <a
+                href="https://linkedin.com/in/mehraj-kumarkiri-2ab373211"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-neutral-100 hover:bg-black hover:text-white text-neutral-800 transition-colors group"
+              >
+                <div className="flex items-center gap-2">
+                  <LinkedinIcon className="w-4 h-4" />
+                  <span className="text-xs font-bold uppercase tracking-wider">
+                    LinkedIn
+                  </span>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
-                        Your Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Dr. Alex Rivera"
-                        value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
-                        Your Email *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="alex@company.com"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      />
-                    </div>
-                  </div>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
 
+              <a
+                href="https://github.com/mehrajkumarkiri"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-neutral-100 hover:bg-black hover:text-white text-neutral-800 transition-colors group"
+              >
+                <div className="flex items-center gap-2">
+                  <GithubIcon className="w-4 h-4" />
+                  <span className="text-xs font-bold uppercase tracking-wider">
+                    GitHub
+                  </span>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Message Form */}
+        <div className="lg:col-span-7">
+          <div className="p-8 sm:p-10 rounded-3xl glass-card">
+            <h3 className="font-black text-2xl text-black uppercase tracking-tight mb-2">
+              Send a Message
+            </h3>
+            <p className="text-xs text-neutral-500 font-medium mb-8">
+              Discuss autonomous AI architecture, hackathons, or full-stack software development.
+            </p>
+
+            {submitted ? (
+              <div className="p-8 rounded-2xl bg-neutral-100 border border-neutral-300 text-center space-y-3">
+                <Check className="w-8 h-8 mx-auto text-black" />
+                <h4 className="font-extrabold text-base text-black uppercase">
+                  Message Sent Successfully
+                </h4>
+                <p className="text-xs text-neutral-600">
+                  Thank you! Mehraj will respond to your email address shortly.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
-                      Subject
+                    <label className="block text-[11px] font-mono font-bold tracking-wider text-neutral-600 uppercase mb-2">
+                      Your Name *
                     </label>
                     <input
                       type="text"
-                      placeholder="Opportunity / Collaboration Inquiry"
-                      value={formData.subject}
-                      onChange={(e) =>
-                        setFormData({ ...formData, subject: e.target.value })
-                      }
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
-                      Message *
-                    </label>
-                    <textarea
                       required
-                      rows={4}
-                      placeholder="Hi Mehraj, I reviewed your work on autonomous drone swarms and Jarvis AI..."
-                      value={formData.message}
+                      placeholder="Alex Rivera"
+                      value={formData.name}
                       onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
+                        setFormData({ ...formData, name: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white/80 focus:bg-white text-black text-sm focus:outline-none focus:ring-2 focus:ring-black"
                     />
                   </div>
+                  <div>
+                    <label className="block text-[11px] font-mono font-bold tracking-wider text-neutral-600 uppercase mb-2">
+                      Your Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="alex@company.com"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white/80 focus:bg-white text-black text-sm focus:outline-none focus:ring-2 focus:ring-black"
+                    />
+                  </div>
+                </div>
 
-                  <Button
-                    type="submit"
-                    variant="glow"
-                    className="w-full sm:w-auto gap-2 text-sm font-semibold"
-                  >
-                    <Send className="w-4 h-4" />
-                    Send Message
-                  </Button>
-                </form>
-              )}
-            </div>
+                <div>
+                  <label className="block text-[11px] font-mono font-bold tracking-wider text-neutral-600 uppercase mb-2">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="AI Engineering Collaboration"
+                    value={formData.subject}
+                    onChange={(e) =>
+                      setFormData({ ...formData, subject: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white/80 focus:bg-white text-black text-sm focus:outline-none focus:ring-2 focus:ring-black"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-mono font-bold tracking-wider text-neutral-600 uppercase mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    placeholder="Describe your engineering project or inquiry..."
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-white/80 focus:bg-white text-black text-sm focus:outline-none focus:ring-2 focus:ring-black resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-black hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all hover:scale-102 active:scale-98"
+                >
+                  <span>Submit Message</span>
+                  <Send className="w-3.5 h-3.5" />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

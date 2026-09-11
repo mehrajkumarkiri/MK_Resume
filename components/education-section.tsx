@@ -4,14 +4,10 @@ import React from "react";
 import {
   GraduationCap,
   Award,
-  BookOpen,
   Calendar,
   MapPin,
   CheckCircle2,
-  Users,
-  GitBranch,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 
 export function EducationSection() {
   const educationList = [
@@ -20,24 +16,12 @@ export function EducationSection() {
       degree: "Undergraduate Program in Computer Science & Advanced Technologies",
       location: "Hyderabad, India",
       period: "2025 - 2029 (Expected)",
-      score: "CGPA: 9.2 / 10 (1st Year)",
+      score: "CGPA: 9.2 / 10",
       badge: "Current Degree",
       highlights: [
         "Specialized in Artificial Intelligence, Autonomous Systems, and Algorithms",
         "Top academic tier with 9.2 First-Year cumulative grade point average",
         "Active team lead in university technical fests and hackathon delegations",
-      ],
-    },
-    {
-      institution: "K.K.B. College",
-      degree: "Higher Secondary Certificate (HSC - 12th)",
-      location: "Maharashtra, India",
-      period: "Completed",
-      score: "Percentage: 60.0%",
-      badge: "Higher Secondary",
-      highlights: [
-        "Concentration in Science and Mathematics foundation",
-        "Participated in STEM workshops and programming fundamentals",
       ],
     },
     {
@@ -49,7 +33,19 @@ export function EducationSection() {
       badge: "Distinction",
       highlights: [
         "Achieved 92.4% with distinction in CBSE Board examinations",
-        "Awarded academic excellence honors and science Olympiad participation",
+        "Science and Mathematics academic honors",
+      ],
+    },
+    {
+      institution: "K.K.B. College",
+      degree: "Higher Secondary Certificate (HSC - 12th)",
+      location: "Maharashtra, India",
+      period: "Completed",
+      score: "Percentage: 60.0%",
+      badge: "Higher Secondary",
+      highlights: [
+        "Concentration in Science and Mathematics foundation",
+        "STEM foundation and programming fundamentals",
       ],
     },
   ];
@@ -58,115 +54,106 @@ export function EducationSection() {
     {
       title: "National Hackathon Competitor",
       desc: "Active builder in national & university competitions including TakeOver Hackathon, UIDAI National Data Hackathon, and Makers Conclave.",
-      icon: <Award className="w-5 h-5 text-purple-500" />,
     },
     {
-      title: "Cross-Functional Technical Leadership",
-      desc: "Experienced leading multi-member engineering teams (e.g. Sentinel-Ops 4-member team) with structured Git workflows, code reviews, and modular architectures.",
-      icon: <Users className="w-5 h-5 text-indigo-500" />,
+      title: "Technical Leadership (Sentinel-Ops)",
+      desc: "Experienced leading a 4-member cross-functional engineering team with structured Git workflows, code reviews, and modular microservice blueprints.",
     },
     {
-      title: "Version Control & Documentation",
-      desc: "Adherence to clean branching, semantic commits, automated pipelines, and comprehensive technical blueprints for stakeholder evaluations.",
-      icon: <GitBranch className="w-5 h-5 text-pink-500" />,
+      title: "Architectural Documentation & Telemetry",
+      desc: "Architected complete operational lifecycle strategies and state machine protocols for stakeholders and evaluation panels.",
     },
   ];
 
   return (
-    <section id="education" className="py-20 bg-neutral-50/50 dark:bg-neutral-950/70 border-t border-neutral-200 dark:border-neutral-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Education Column */}
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-500 border border-purple-500/20 mb-3">
-              <GraduationCap className="w-3.5 h-3.5" />
-              Academic Foundation
+    <section id="education" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mb-16">
+        <div className="text-[11px] font-mono font-bold tracking-[0.3em] text-neutral-500 uppercase mb-3">
+          ACADEMIC EXCELLENCE &amp; LEADERSHIP
+        </div>
+        <h2 className="text-4xl sm:text-6xl font-black text-black tracking-tight uppercase mb-4">
+          EDUCATION &amp; IMPACT.
+        </h2>
+        <p className="text-neutral-600 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+          Consistent distinction, competitive hackathon participation, and technical leadership.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Education Column */}
+        <div className="lg:col-span-7 space-y-6">
+          {educationList.map((edu, idx) => (
+            <div
+              key={idx}
+              className="p-8 rounded-3xl glass-card hover:shadow-lg transition-all"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+                <h3 className="text-xl font-black text-black uppercase tracking-tight">
+                  {edu.institution}
+                </h3>
+                <span className="glass-pill px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-widest text-black uppercase">
+                  {edu.score}
+                </span>
+              </div>
+              <p className="text-sm font-bold text-neutral-600 uppercase tracking-wider mb-4">
+                {edu.degree}
+              </p>
+              <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-neutral-500 mb-5">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-black" />
+                  {edu.location}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-black" />
+                  {edu.period}
+                </span>
+              </div>
+
+              <ul className="space-y-2 text-xs text-neutral-700">
+                {edu.highlights.map((h, hIdx) => (
+                  <li key={hIdx} className="flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0 mt-1.5" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h2 className="text-3xl font-extrabold text-neutral-900 dark:text-white tracking-tight mb-8">
-              Education & Academic Excellence
-            </h2>
+          ))}
+        </div>
 
-            <div className="space-y-6">
-              {educationList.map((edu, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-white dark:bg-neutral-900/70 border border-neutral-200 dark:border-neutral-800 shadow-sm hover:border-purple-500/40 transition-colors"
-                >
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                    <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
-                      {edu.institution}
-                    </h3>
-                    <Badge variant="accent">{edu.badge}</Badge>
-                  </div>
-                  <p className="text-sm font-medium text-purple-600 dark:text-purple-400 mb-2">
-                    {edu.degree}
-                  </p>
-                  <div className="flex flex-wrap items-center gap-4 text-xs text-neutral-500 dark:text-neutral-400 mb-4">
-                    <span className="flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5" />
-                      {edu.location}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {edu.period}
-                    </span>
-                    <span className="font-semibold text-neutral-900 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded">
-                      {edu.score}
-                    </span>
-                  </div>
+        {/* Leadership Column */}
+        <div className="lg:col-span-5 space-y-6">
+          <div className="p-8 rounded-3xl glass-card space-y-6">
+            <h3 className="text-2xl font-black text-black uppercase tracking-tight mb-2">
+              Competitive Track Record
+            </h3>
+            <p className="text-xs text-neutral-600 leading-relaxed">
+              Proven ability to lead technical teams, deliver complex AI architectures under hackathon timeframes, and present to national panels.
+            </p>
 
-                  <ul className="space-y-1.5 text-xs text-neutral-600 dark:text-neutral-300">
-                    {edu.highlights.map((h, hIdx) => (
-                      <li key={hIdx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-purple-500 shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Leadership & Track Record Column */}
-          <div className="lg:col-span-5 flex flex-col justify-start">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-500 border border-indigo-500/20 mb-3">
-              <Award className="w-3.5 h-3.5" />
-              Leadership Record
-            </div>
-            <h2 className="text-3xl font-extrabold text-neutral-900 dark:text-white tracking-tight mb-8">
-              Competitive & Leadership Impact
-            </h2>
-
-            <div className="space-y-4">
+            <div className="space-y-6 pt-2">
               {leadershipList.map((lead, idx) => (
-                <div
-                  key={idx}
-                  className="p-5 rounded-2xl bg-white dark:bg-neutral-900/70 border border-neutral-200 dark:border-neutral-800 shadow-sm hover:border-indigo-500/40 transition-colors"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800">
-                      {lead.icon}
-                    </div>
-                    <h4 className="font-bold text-neutral-900 dark:text-white text-base">
+                <div key={idx} className="space-y-1.5">
+                  <div className="flex items-center gap-2">
+                    <Award className="w-4 h-4 text-black shrink-0" />
+                    <h4 className="font-extrabold text-sm text-black uppercase tracking-wider">
                       {lead.title}
                     </h4>
                   </div>
-                  <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed pl-11">
+                  <p className="text-xs text-neutral-600 leading-relaxed pl-6">
                     {lead.desc}
                   </p>
                 </div>
               ))}
+            </div>
 
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-900/20 to-indigo-900/20 border border-purple-500/30 text-neutral-900 dark:text-white mt-6">
-                <h4 className="font-bold text-base mb-1 flex items-center gap-2">
-                  <Award className="w-4 h-4 text-purple-400" />
-                  Fast Facts
-                </h4>
-                <p className="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                  Competed at national hackathon tiers in high school and freshman collegiate year, maintaining an elite 9.2 CGPA while leading software development teams.
-                </p>
+            <div className="p-6 rounded-2xl bg-black text-white mt-6 shadow-md">
+              <div className="text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase mb-1">
+                FIRST-YEAR HIGHLIGHT
               </div>
+              <p className="text-sm font-bold leading-relaxed">
+                Maintained 9.2 CGPA at NIAT while simultaneously architecting autonomous drone swarms and participating in 3 national competitions.
+              </p>
             </div>
           </div>
         </div>

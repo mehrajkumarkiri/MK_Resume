@@ -6,17 +6,19 @@ import { TimelineDemo } from "@/components/timeline-demo";
 import { EducationSection } from "@/components/education-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-neutral-950 flex flex-col">
+    <main className="min-h-screen bg-transparent flex flex-col relative">
       <Navbar />
       <Hero />
-      <SkillsSection />
       <TimelineDemo />
+      <SkillsSection />
       <EducationSection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }

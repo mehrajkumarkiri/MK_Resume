@@ -1,50 +1,42 @@
 "use client";
 
 import React from "react";
-import { Sparkles, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
 export function Footer() {
   return (
-    <footer className="py-12 bg-neutral-100 dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-900 text-neutral-600 dark:text-neutral-400 text-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-md bg-purple-600/20 text-purple-400 flex items-center justify-center">
-            <Sparkles className="w-3.5 h-3.5" />
-          </div>
-          <span className="font-semibold text-neutral-900 dark:text-white">
-            Mehraj Kumarkiri
+    <footer className="py-12 border-t border-black/[0.06] bg-white/70 backdrop-blur-md text-neutral-600 text-xs font-medium">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <span className="font-extrabold tracking-widest text-black uppercase">
+            MEHRAJ KUMARKIRI
           </span>
-          <span className="text-xs text-neutral-500">
-            © {new Date().getFullYear()} All Rights Reserved.
-          </span>
+          <span className="text-neutral-400">&bull;</span>
+          <span>&copy; {new Date().getFullYear()} All Rights Reserved.</span>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <a
             href="https://github.com/mehrajkumarkiri"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-purple-500 transition-colors"
-            aria-label="GitHub"
+            className="hover:text-black transition-colors"
           >
-            <GithubIcon className="w-4 h-4" />
+            GitHub
           </a>
           <a
             href="https://linkedin.com/in/mehraj-kumarkiri-2ab373211"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-purple-500 transition-colors"
-            aria-label="LinkedIn"
+            className="hover:text-black transition-colors"
           >
-            <LinkedinIcon className="w-4 h-4" />
+            LinkedIn
           </a>
           <a
             href="mailto:kumarkirimehraj05@gmail.com"
-            className="hover:text-purple-500 transition-colors"
-            aria-label="Email"
+            className="hover:text-black transition-colors"
           >
-            <Mail className="w-4 h-4" />
+            kumarkirimehraj05@gmail.com
           </a>
         </div>
       </div>
